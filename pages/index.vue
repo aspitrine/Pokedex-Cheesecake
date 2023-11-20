@@ -8,7 +8,7 @@
         <input
           v-model="searchText"
           type="text"
-          class="outline-none text-black border-2 focus:border-[#F0F] focus:text-[#F0F]"
+          class="outline-none text-black border-2 focus:border-amber-600 focus:text-amber-600"
         />
       </div>
       <div class="text-center mb-2">
