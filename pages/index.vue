@@ -85,7 +85,7 @@ const nbPerPageOptions = [20, 50, 100, 200];
 // Ici on utilise useFetch pour appeler une API
 // En utilisant le await, je vais faire cet appel API côté serveur
 // Ainsi le HTML lier à ma donnée sera généré côté serveur
-const { data: pokemons, pending } = await useFetch<Pokemon[]>(
+const { data: pokemons, pending } = useFetch<Pokemon[]>(
   "https://tyradex.vercel.app/api/v1/pokemon",
 );
 
@@ -93,8 +93,9 @@ const { data: pokemons, pending } = await useFetch<Pokemon[]>(
 // C'est à dire retourner des informations à partir d'autre variable
 // L'intérêt est que si les variables (reactive) utilisées change, la valeur sera recalculée
 const pokemonFiltered = computed(() => {
+  const searchTextLowered = searchText.value.toLowerCase();
   return pokemons.value?.filter((pokemon) =>
-    pokemon.name.fr.includes(searchText.value),
+    pokemon.name.fr.toLowerCase().includes(searchTextLowered),
   );
 });
 
@@ -103,6 +104,10 @@ const pokemonPaginated = computed(() => {
   const end = start + nbPerPage.value;
 
   return pokemonFiltered.value?.slice(start, end);
+});
+
+watch(searchText, () => {
+  page.value = 1;
 });
 
 function changeNbPerPage(nbPerPageToShow: number) {
