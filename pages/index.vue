@@ -6,8 +6,15 @@
       <input v-model="searchText" type="text" />
     </div>
     <div v-if="pending">Chargement...</div>
-    <div v-else-if="pokemons">
-      <PokemonCard v-for="pokemon of pokemons" :key="pokemon.pokedexId" />
+    <div
+      v-else-if="pokemons"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+    >
+      <PokemonCard
+        v-for="pokemon of pokemons"
+        :key="pokemon.pokedexId"
+        :pokemon="pokemon"
+      />
     </div>
     <div v-else>Aucun pokemons</div>
   </div>
