@@ -1,5 +1,13 @@
 <template>
-  <div>{{ pokemon.name.fr }}</div>
+  <div class="border-2 border-amber-600 p-2">
+    <h3>{{ pokemon.name.fr }}</h3>
+    <img
+      :src="pokemon.sprites.shiny || pokemon.sprites.regular"
+      loading="lazy"
+      :alt="pokemon.name.fr"
+      class="w-full"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">

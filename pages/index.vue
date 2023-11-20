@@ -8,7 +8,7 @@
     <div v-if="pending">Chargement...</div>
     <div
       v-else-if="pokemons"
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+      class="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
     >
       <PokemonCard
         v-for="pokemon of pokemons"
