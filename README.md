@@ -73,3 +73,11 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Configuration
+
+```bash
+pnpm i -D eslint
+pnpm i -D prettier eslint-config-prettier eslint-plugin-prettier
+pnpm i -D typescript @typescript-eslint/parser @nuxtjs/eslint-config-typescript
+```
