@@ -66,14 +66,19 @@
 </template>
 
 <script setup lang="ts">
+import { useRouteQuery } from "@vueuse/router";
 import type { Pokemon } from "~/@types/pokemon";
 import PokemonCard from "~/components/PokemonCard.vue";
 // Le ref remplace le useState
 // Cela me permet de créer une variable réactive
 // Ici je n'ai pas une fonction pour modifier ma variable
-const searchText = ref("");
-const nbPerPage = ref(20);
-const page = ref(1);
+const searchText = useRouteQuery("q", "");
+const nbPerPage = useRouteQuery("nbPerPage", 20, {
+  transform: Number,
+});
+const page = useRouteQuery("page", 1, {
+  transform: Number,
+});
 
 const nbPerPageOptions = [20, 50, 100, 200];
 
