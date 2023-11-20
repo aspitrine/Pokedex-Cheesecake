@@ -41,18 +41,23 @@
         <button
           type="button"
           class="bg-yellow-500 p-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
-          :disabled="pokemons.length < nbPerPage * page"
+          :disabled="
+            pokemonFiltered && pokemonFiltered.length < nbPerPage * page
+          "
           @click="page++"
         >
           Suivant
         </button>
       </div>
       <div class="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        <PokemonCard
-          v-for="pokemon of pokemonFiltered"
+        <NuxtLink
+          v-for="pokemon of pokemonPaginated"
           :key="pokemon.pokedexId"
-          :pokemon="pokemon"
-        />
+          :to="`/pokemon/${pokemon.pokedexId}`"
+          class="hover:bg-amber-600"
+        >
+          <PokemonCard :pokemon="pokemon" />
+        </NuxtLink>
       </div>
     </div>
 
@@ -83,12 +88,16 @@ const { data: pokemons, pending } = await useFetch<Pokemon[]>(
 // C'est à dire retourner des informations à partir d'autre variable
 // L'intérêt est que si les variables (reactive) utilisées change, la valeur sera recalculée
 const pokemonFiltered = computed(() => {
+  return pokemons.value?.filter((pokemon) =>
+    pokemon.name.fr.includes(searchText.value),
+  );
+});
+
+const pokemonPaginated = computed(() => {
   const start = (page.value - 1) * nbPerPage.value;
   const end = start + nbPerPage.value;
 
-  return pokemons.value
-    ?.filter((pokemon) => pokemon.name.fr.includes(searchText.value))
-    .slice(start, end);
+  return pokemonFiltered.value?.slice(start, end);
 });
 
 function changeNbPerPage(nbPerPageToShow: number) {
