@@ -14,5 +14,10 @@ export default defineNuxtConfig({
       name: "Pokedex",
       short_name: "Pokedex",
     }
+  },
+  app: {
+    head: {
+      viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+    }
   }
 })
