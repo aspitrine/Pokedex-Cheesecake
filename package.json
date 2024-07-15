@@ -1,7 +1,8 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -9,21 +10,17 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "nuxt": "^3.8.1",
-    "prettier": "^3.1.0",
-    "typescript": "^5.2.2",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
-  },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.9.5",
     "@vueuse/router": "^10.6.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.22.3",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint": "^0.3.13",
+    "nuxt": "^3.12.3",
+    "typescript": "^5.2.2",
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5"
   }
 }

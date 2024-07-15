@@ -1,8 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', "@nuxt/eslint"],
   devtools: { enabled: true },
+
   typescript: {
-    strict: true
-  }
+    strict: true,
+  },
+
+  compatibilityDate: "2024-07-15",
 })
