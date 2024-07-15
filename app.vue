@@ -1,4 +1,5 @@
 <template>
+  <VitePwaManifest />
   <div class="h-screen bg-amber-500 flex flex-col text-white">
     <header class="bg-amber-600 font-bold p-2 text-center">
       <h1 class="text-3xl">
